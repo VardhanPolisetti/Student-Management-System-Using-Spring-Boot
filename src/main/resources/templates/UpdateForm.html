@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Student</title>
+</head>
+<body>
+    <h2>Update Student Form</h2>
+
+    <form th:action="@{/update}" th:object="${student}" method="post">
+
+        <input type="hidden" th:field="*{studentId}" />
+        <label>Name:</label><br>
+        <label>
+            <input type="text" th:field="*{name}" required/>
+        </label><br><br>
+
+        <label>Age:</label><br>
+        <label>
+            <input type="number" th:field="*{age}" required/>
+        </label><br><br>
+
+        <label>Class:</label><br>
+        <label>
+            <input type="text" th:field="*{studentClass}" required/>
+        </label><br><br>
+
+        <label>Email:</label><br>
+        <label>
+            <input type="email" th:field="*{email}" required/>
+        </label><br><br>
+
+        <label>Address:</label><br>
+        <label>
+            <textarea th:field="*{address}" rows="3" required></textarea>
+        </label><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

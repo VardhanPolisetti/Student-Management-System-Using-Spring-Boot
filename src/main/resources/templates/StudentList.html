@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Data</title>
+</head>
+<body>
+<div th:fragment="studentListFragment">
+
+    <h2>All Students</h2>
+    <form th:action="@{/search}" method="get" style="margin-bottom: 20px;">
+        <label for="query">Search by Name:</label>
+        <input type="text" id="query" name="query" placeholder="Enter student name" required />
+        <button type="submit">Search</button>
+    </form>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Email</th>
+            <th>Address</th>
+        </tr>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.studentId}"></td>
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.age}"></td>
+            <td th:text="${student.studentClass}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.address}"></td>
+            <td>
+                <a th:href="@{/editById/{id}(id=${student.studentId})}">Edit</a>
+            </td>
+            <td >
+                <a th:href="@{/deleteById/{id}(id=${student.studentId})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <a href="/addStudent">Add New Student</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Form</title>
+</head>
+<body>
+
+    <h2>Student Form</h2>
+
+    <form th:action="@{/save}" th:object="${student}" method="post">
+
+        <label>Name:</label><br>
+        <label>
+            <input type="text" th:field="*{name}" required/>
+        </label><br><br>
+
+        <label>Age:</label><br>
+        <label>
+            <input type="number" th:field="*{age}" required/>
+        </label><br><br>
+
+        <label>Class:</label><br>
+        <label>
+            <input type="text" th:field="*{studentClass}" required/>
+        </label><br><br>
+
+        <label>Email:</label><br>
+        <label>
+            <input type="email" th:field="*{email}" required/>
+        </label><br><br>
+
+        <label>Address:</label><br>
+        <label>
+            <textarea th:field="*{address}" rows="3" required></textarea>
+        </label><br><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
